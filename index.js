@@ -19,13 +19,16 @@ const logger = winston.createLogger({
 // Log a test message
 logger.info('Application started and logging is working!');
 
-console.log('Server is running...');
+logger.info('Server is running...');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World from Docker');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    logger.info(`Server is running on port ${port}`);
     });
