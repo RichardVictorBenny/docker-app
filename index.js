@@ -16,7 +16,6 @@ const logger = winston.createLogger({
     ]
 });
 
-// Log a test message
 logger.info('Application started and logging is working!');
 
 logger.info('Server is running...');
